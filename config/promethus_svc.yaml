@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/scrape: "true"
+  creationTimestamp: 2018-08-29T05:58:17Z
+  labels:
+    name: prometheus
+  name: prometheus-svc
+  namespace: istio-system
+  resourceVersion: "10909"
+  selfLink: /api/v1/namespaces/istio-system/services/prometheus
+  uid: 868d086b-ab50-11e8-86b2-00163e10b085
+spec:
+  ports:
+  - name: http-prometheus
+    port: 9090
+    nodePort: 30002
+    protocol: TCP
+    targetPort: 9090
+  selector:
+    app: prometheus
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2018-08-29T05:58:17Z
+  labels:
+    app: jaeger
+    chart: tracing-1.0.1
+    heritage: Tiller
+    jaeger-infra: jaeger-service
+    release: istio
+  name: jaeger-query-1
+  namespace: istio-system
+  resourceVersion: "11018"
+  selfLink: /api/v1/namespaces/istio-system/services/jaeger-query
+  uid: 86a8deae-ab50-11e8-86b2-00163e10b085
+spec:
+  ports:
+  - name: query-http
+    port: 30001
+    nodePort: 30001
+    protocol: TCP
+    targetPort: 16686
+  selector:
+    app: jaeger
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
